@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- ===== SEO (swap per client) ===== -->
+  <title>Mochi Moon — Dumpling House &amp; Dessert Bar, Bengaluru</title>
+  <meta name="description" content="Mochi Moon is a modern Asian dumpling house and dessert bar in Indiranagar, Bengaluru. Hand-pleated dumplings, slow-simmered ramen and fresh mochi. Little bites. Big happiness.">
+  <meta name="theme-color" content="#F7F3EC">
+  <link rel="canonical" href="https://www.example.com/">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Mochi Moon — Little bites. Big happiness.">
+  <meta property="og:description" content="Hand-pleated dumplings, slow-simmered ramen and fresh mochi in Indiranagar, Bengaluru.">
+  <meta property="og:image" content="https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=1200">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;500&display=swap">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.replace('no-js','js');
+  // Each photo lists backup photos in data-fallback; if one fails to load, the next is tried.
+  document.addEventListener('error', function (e) {
+    var img = e.target;
+    if (!img || img.tagName !== 'IMG' || !img.dataset.fallback) return;
+    var list = img.dataset.fallback.split('|'), next = list.shift();
+    img.dataset.fallback = list.join('|');
+    if (next) img.src = next;
+  }, true);</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Mochi Moon",
+    "servesCuisine": ["Asian", "Dumplings", "Ramen", "Desserts"],
+    "priceRange": "₹₹",
+    "telephone": "+91 98765 43210",
+    "address": { "@type": "PostalAddress", "streetAddress": "12 Lavender Lane, Indiranagar", "addressLocality": "Bengaluru", "postalCode": "560038", "addressCountry": "IN" },
+    "openingHours": ["Mo-Th 12:00-22:30", "Fr-Sa 12:00-23:30", "Su 11:00-22:00"],
+    "image": "https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=1200"
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <!-- Monoline logo mark: crescent moon + chopsticks -->
+    <symbol id="logo-mark" viewBox="0 0 40 40">
+      <path d="M24.5 8.2a13 13 0 1 0 8 19.6A11 11 0 0 1 24.5 8.2z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <path d="M21 33.5L35 5.5M24.5 34.5L37.5 8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z" fill="currentColor"/></symbol>
+    <symbol id="i-sparkle" viewBox="-12 -12 24 24"><path d="M0-11C1-3 3-1 11 0 3 1 1 3 0 11-1 3-3 1-11 0-3-1-1-3 0-11Z" fill="currentColor"/></symbol>
+  </svg>
+
+  <!-- ===== Loader (≈2s): the moon fills like a bowl of soup ===== -->
+  <div class="loader" id="loader" role="status" aria-label="Loading">
+    <div class="loader__center">
+      <svg class="loader__moon" viewBox="0 0 120 120" aria-hidden="true">
+        <defs><clipPath id="bowlClip"><circle cx="60" cy="60" r="44"/></clipPath></defs>
+        <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"/>
+        <g clip-path="url(#bowlClip)">
+          <path class="loader__soup" id="loaderSoup" d="M-60 0 C-40 -5 -20 5 0 0 S40 -5 60 0 S100 5 120 0 S160 -5 180 0 V120 H-60Z" fill="#B4441C"/>
+        </g>
+        <circle class="loader__ring" cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1"/>
+      </svg>
+      <p class="loader__count"><span id="loaderPct">00</span></p>
+    </div>
+    <p class="loader__brand">Mochi Moon</p>
+  </div>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__label">View</span></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- The hero bowl travels from the hero into the menu while you scroll -->
+  <div class="travel" id="travel" aria-hidden="true">
+    <div class="travel__spin" id="travelSpin">
+      <img src="https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=1400" data-fallback="https://unsplash.com/photos/AXWXzGUdLLo/download?force=true&w=1400|https://unsplash.com/photos/NDX6Hr95dtQ/download?force=true&w=1400" alt="" width="1200" height="1200" fetchpriority="high" decoding="async">
+    </div>
+    <span class="steam"><i></i><i></i><i></i></span>
+  </div>
+
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="logo" aria-label="Mochi Moon — back to top">
+        <svg class="logo__mark" width="30" height="30" aria-hidden="true"><use href="#logo-mark"/></svg>
+        <span class="logo__word">Mochi Moon</span>
+      </a>
+      <nav class="nav__links" aria-label="Main">
+        <ul id="navMenu">
+          <li><a href="#menu" data-num="01">Veg Menu</a></li>
+          <li><a href="#nonveg" data-num="02">Non-Veg</a></li>
+          <li><a href="#fastfood" data-num="03">Fast Food</a></li>
+          <li><a href="#about" data-num="04">About</a></li>
+          <li><a href="#gallery" data-num="05">Gallery</a></li>
+          <li><a href="#reserve" data-num="06">Reserve</a></li>
+        </ul>
+      </nav>
+      <a href="#reserve" class="btn btn--dark btn--sm nav__cta magnetic"><span>Book a Table</span></a>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero" aria-labelledby="heroTitle">
+      <div class="hero__copy">
+        <p class="label reveal-up">Dumpling House &amp; Dessert Bar — Indiranagar</p>
+        <h1 class="hero__title" id="heroTitle" data-split>
+          <span class="line">Little bites.</span>
+          <span class="line"><em>Big happiness.</em></span>
+        </h1>
+        <div class="hero__foot">
+          <p class="hero__sub reveal-up">A vegetarian-first dumpling house: hand-pleated dumplings, miso ramen and fresh mochi — with a separate meat kitchen and quick bites too.</p>
+          <div class="hero__ctas reveal-up">
+            <a href="#menu" class="btn btn--dark magnetic"><span>See Veg Menu</span></a>
+            <a href="#reserve" class="btn btn--line magnetic"><span>Reserve Now</span><svg width="18" height="18" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+        <ul class="hero__meta reveal-up" role="list">
+          <li><span class="dot" aria-hidden="true"></span><span data-open-status>Open today till 10:30 pm</span></li>
+          <li>Est. 2015</li>
+        </ul>
+      </div>
+
+      <div class="hero__panel" aria-hidden="true">
+        <!-- Infinite vertical column of signature dishes (like a moving menu board) -->
+        <div class="dish-column">
+          <div class="dish-column__track">
+            <img src="https://unsplash.com/photos/z9JWq7pr5QE/download?force=true&w=700" data-fallback="https://unsplash.com/photos/Exp06wifT6U/download?force=true&w=700" alt="" width="800" height="1000" decoding="async">
+            <img src="https://unsplash.com/photos/NDX6Hr95dtQ/download?force=true&w=700" data-fallback="https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=700" alt="" width="800" height="1000" decoding="async">
+            <img src="https://unsplash.com/photos/fuC3jLQ7elM/download?force=true&w=700" data-fallback="https://unsplash.com/photos/3euVhAK8iUs/download?force=true&w=700" alt="" width="800" height="1000" decoding="async">
+            <img src="https://unsplash.com/photos/3MiakfkKOLc/download?force=true&w=700" data-fallback="https://unsplash.com/photos/P_n-YjsgWhM/download?force=true&w=700" alt="" width="800" height="1000" decoding="async">
+            <img src="https://unsplash.com/photos/g7ue2JBhDro/download?force=true&w=700" data-fallback="https://unsplash.com/photos/0_gUJgehkzw/download?force=true&w=700" alt="" width="800" height="1000" decoding="async">
+          </div>
+        </div>
+        <p class="hero__panel-note">100% Vegetarian<br>Signature Menu</p>
+      </div>
+
+      <!-- Where the travelling bowl sits in the hero -->
+      <div class="hero__slot" id="heroSlot" aria-hidden="true"><img src="https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=1400" data-fallback="https://unsplash.com/photos/AXWXzGUdLLo/download?force=true&w=1400|https://unsplash.com/photos/NDX6Hr95dtQ/download?force=true&w=1400" alt="" width="1200" height="1200" decoding="async"></div>
+
+      <a href="#about" class="scroll-cue" aria-label="Scroll to our story"><span>Scroll</span><i></i></a>
+    </section>
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section about" id="about" aria-labelledby="aboutTitle">
+      <div class="container about__grid">
+        <div class="about__copy">
+          <p class="label"><span class="label__num">02</span> Our story</p>
+          <h2 id="aboutTitle" class="split-lines">A tiny dumpling cart, <em>a very big moon.</em></h2>
+          <p class="reveal-up">Mochi Moon began in 2015 as a cart outside a Bengaluru metro station — one bamboo steamer, a borrowed stove and Chef Rin's grandmother's rule: eighteen folds, never fewer.</p>
+          <p class="reveal-up">Today we're a forty-seat dining room with the same promise. Everything is made by hand, every morning, in small batches.</p>
+          <dl class="stats">
+            <div class="reveal-up"><dt><span data-count="10">10</span>+</dt><dd>Years of steaming</dd></div>
+            <div class="reveal-up"><dt><span data-count="50">50</span>+</dt><dd>Dishes on rotation</dd></div>
+            <div class="reveal-up"><dt><span data-count="20">20</span>k</dt><dd>Happy guests</dd></div>
+          </dl>
+        </div>
+        <figure class="about__media">
+          <div class="frame reveal-img">
+            <img src="https://unsplash.com/photos/zlZ_O2Vjhw0/download?force=true&w=1200" data-fallback="https://unsplash.com/photos/yRnOQOyWfHI/download?force=true&w=1200|https://unsplash.com/photos/COP9_g8aXFU/download?force=true&w=1200" alt="Chef standing at the pass of the kitchen" width="1200" height="1500" loading="lazy" decoding="async" data-parallax>
+          </div>
+          <figcaption>Chef Rin Kapoor — <em>at the pass</em></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== VEG MENU (home page) ===================== -->
+    <section class="section menu" id="menu" aria-labelledby="menuTitle">
+      <div class="container">
+        <div class="menu__head">
+          <div>
+            <p class="label"><span class="label__num">01</span> Vegetarian menu <span class="badge badge--veg"><span class="v" aria-hidden="true"></span> 100% veg</span></p>
+            <h2 id="menuTitle" class="split-lines">Little bites, <em>all green.</em></h2>
+            <p class="menu__intro reveal-up">Our signature menu is entirely vegetarian, cooked in its own kitchen with separate woks, steamers and utensils.</p>
+          </div>
+          <div class="menu__dock" id="menuDock" aria-hidden="true">
+            <img src="https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=1400" data-fallback="https://unsplash.com/photos/AXWXzGUdLLo/download?force=true&w=1400|https://unsplash.com/photos/NDX6Hr95dtQ/download?force=true&w=1400" alt="" width="1200" height="1200" loading="lazy" decoding="async">
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Vegetarian menu categories">
+          <button role="tab" class="tab is-active" aria-selected="true" aria-controls="menuGrid" data-filter="all">All <sup>08</sup></button>
+          <button role="tab" class="tab" aria-selected="false" aria-controls="menuGrid" data-filter="dumplings" tabindex="-1">Dumplings <sup>02</sup></button>
+          <button role="tab" class="tab" aria-selected="false" aria-controls="menuGrid" data-filter="bowls" tabindex="-1">Ramen &amp; Bowls <sup>02</sup></button>
+          <button role="tab" class="tab" aria-selected="false" aria-controls="menuGrid" data-filter="mochi" tabindex="-1">Mochi <sup>02</sup></button>
+          <button role="tab" class="tab" aria-selected="false" aria-controls="menuGrid" data-filter="drinks" tabindex="-1">Drinks <sup>02</sup></button>
+        </div>
+
+        <div class="menu__grid" id="menuGrid" role="tabpanel" aria-label="Vegetarian dishes">
+          <article class="dish" data-category="dumplings">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><span class="steam steam--sm" aria-hidden="true"><i></i><i></i><i></i></span><img src="https://unsplash.com/photos/z9JWq7pr5QE/download?force=true&w=900" data-fallback="https://unsplash.com/photos/Exp06wifT6U/download?force=true&w=900|https://unsplash.com/photos/0_gUJgehkzw/download?force=true&w=900" alt="Mushroom dumplings on a plate" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Dumplings · 6 pcs</p>
+                <h3>Mushroom &amp; Truffle Dumplings</h3>
+                <p class="dish__desc">Wild mushroom, chives and a whisper of truffle.</p>
+                <p class="dish__meta"><span class="price">₹279</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="dumplings">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><span class="steam steam--sm" aria-hidden="true"><i></i><i></i><i></i></span><img src="https://unsplash.com/photos/g7ue2JBhDro/download?force=true&w=900" data-fallback="https://unsplash.com/photos/0_gUJgehkzw/download?force=true&w=900|https://unsplash.com/photos/Exp06wifT6U/download?force=true&w=900" alt="A bowl of steamed vegetable dumplings" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Dumplings · 5 pcs</p>
+                <h3>Crystal Veg Har Gow</h3>
+                <p class="dish__desc">Water chestnut, shiitake, glass-thin wrappers.</p>
+                <p class="dish__meta"><span class="price">₹279</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="bowls">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><span class="steam steam--sm" aria-hidden="true"><i></i><i></i><i></i></span><img src="https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=900" data-fallback="https://unsplash.com/photos/AXWXzGUdLLo/download?force=true&w=900|https://unsplash.com/photos/NDX6Hr95dtQ/download?force=true&w=900" alt="Bowl of miso soup with tofu and onions" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Ramen</p>
+                <h3>Miso Tofu Ramen</h3>
+                <p class="dish__desc">Red miso &amp; sesame broth, silken tofu, spring onion.</p>
+                <p class="dish__meta"><span class="price">₹399</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="bowls">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/NDX6Hr95dtQ/download?force=true&w=900" data-fallback="https://unsplash.com/photos/PRQmXA5RtvY/download?force=true&w=900|https://unsplash.com/photos/AXWXzGUdLLo/download?force=true&w=900" alt="Bowl of vegetables with tofu" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Bowls</p>
+                <h3>Sesame Tofu Bowl</h3>
+                <p class="dish__desc">Crisp tofu, greens, pickles and sticky rice.</p>
+                <p class="dish__meta"><span class="price">₹329</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="mochi">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/fuC3jLQ7elM/download?force=true&w=900" data-fallback="https://unsplash.com/photos/MeOcZyu5BM0/download?force=true&w=900|https://unsplash.com/photos/3euVhAK8iUs/download?force=true&w=900" alt="Daifuku mochi with tea" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Mochi · 2 pcs</p>
+                <h3>Strawberry Daifuku</h3>
+                <p class="dish__desc">Soft mochi around a whole strawberry &amp; red bean.</p>
+                <p class="dish__meta"><span class="price">₹189</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="mochi">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/3euVhAK8iUs/download?force=true&w=900" data-fallback="https://unsplash.com/photos/TgF9mRE3TL4/download?force=true&w=900|https://unsplash.com/photos/fuC3jLQ7elM/download?force=true&w=900" alt="Japanese mochi sweets" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Mochi</p>
+                <h3>Moon Mochi Trio</h3>
+                <p class="dish__desc">Sakura, vanilla &amp; matcha, brown-sugar glaze.</p>
+                <p class="dish__meta"><span class="price">₹169</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="drinks">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/3MiakfkKOLc/download?force=true&w=900" data-fallback="https://unsplash.com/photos/P_n-YjsgWhM/download?force=true&w=900|https://unsplash.com/photos/3CzGKfWfYEk/download?force=true&w=900" alt="Matcha latte with foam art" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Drinks</p>
+                <h3>Ceremonial Matcha Latte</h3>
+                <p class="dish__desc">Uji matcha, steamed milk, a touch of honey.</p>
+                <p class="dish__meta"><span class="price">₹229</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="drinks">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/s9EVOBtiYQc/download?force=true&w=900" data-fallback="https://unsplash.com/photos/y8rjmtsq0lE/download?force=true&w=900|https://unsplash.com/photos/aJpTyG2pkJ4/download?force=true&w=900" alt="Brown sugar bubble tea" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Drinks</p>
+                <h3>Brown Sugar Boba</h3>
+                <p class="dish__desc">Tiger-striped milk tea, slow-cooked jaggery pearls.</p>
+                <p class="dish__meta"><span class="price">₹229</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="menu__note">All prices in ₹, inclusive of taxes. Looking for meat or something quick? See our <a href="#nonveg" class="link">non-vegetarian menu</a> and <a href="#fastfood" class="link">fast food</a>.</p>
+      </div>
+    </section>
+
+    <!-- ===================== CHEF'S SPECIAL (pinned) ===================== -->
+    <section class="special" id="special" aria-labelledby="specialTitle">
+      <div class="special__curve" aria-hidden="true"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path id="specialCurve" d="M0,120 Q720,0 1440,120 Z"/></svg></div>
+      <div class="container special__grid">
+        <div class="special__copy">
+          <p class="label label--light"><span class="label__num">—</span> Chef's special</p>
+          <h2 id="specialTitle" class="split-lines">Truffle Soup <em>Dumplings</em></h2>
+          <p class="reveal-up">Vegetarian xiao long bao — wild mushroom and truffle, pleated eighteen times around a spoonful of slow-set mushroom broth, steamed in bamboo for eight minutes.</p>
+          <p class="special__price reveal-up"><span class="price price--light">₹349</span> <span class="v v--light" role="img" aria-label="Vegetarian"></span> 6 pieces · after 6 pm</p>
+          <a href="#reserve" class="btn btn--ember magnetic reveal-up"><span>Reserve a basket</span></a>
+          <div class="special__progress" aria-hidden="true"><span id="specialBar"></span></div>
+        </div>
+        <div class="special__stage">
+          <div class="special__disc" aria-hidden="true"></div>
+          <div class="special__dish" id="specialDish">
+            <img src="https://unsplash.com/photos/j9fy7p_hcpM/download?force=true&w=1400" data-fallback="https://unsplash.com/photos/z9JWq7pr5QE/download?force=true&w=1400|https://unsplash.com/photos/g7ue2JBhDro/download?force=true&w=1400" alt="Vegetarian soup dumplings in a bamboo steamer" width="1200" height="1200" loading="lazy" decoding="async">
+          </div>
+          <span class="steam steam--lg" aria-hidden="true"><i></i><i></i><i></i></span>
+          <ul class="ingredients" aria-label="What's inside">
+            <li class="ing ing--1"><span>18 hand-pleated folds</span></li>
+            <li class="ing ing--2"><span>Mushroom &amp; truffle broth</span></li>
+            <li class="ing ing--3"><span>Bamboo-steamed, 8 min</span></li>
+            <li class="ing ing--4"><span>Black vinegar &amp; ginger</span></li>
+            <li class="ing ing--5"><span>Spring onion, sesame</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NON-VEG MENU ===================== -->
+    <section class="section menu menu--nonveg" id="nonveg" aria-labelledby="nonvegTitle">
+      <div class="container">
+        <div class="menu__head menu__head--split">
+          <div>
+            <p class="label"><span class="label__num">02</span> Non-vegetarian <span class="badge badge--nv"><span class="nv" aria-hidden="true"></span> Non-veg</span></p>
+            <h2 id="nonvegTitle" class="split-lines">From the <em>meat kitchen.</em></h2>
+          </div>
+          <p class="menu__intro reveal-up">Pork, chicken and slow broths — prepared at a separate station so our vegetarian kitchen stays 100% veg.</p>
+        </div>
+        <div class="menu__grid menu__grid--static" aria-label="Non-vegetarian dishes">
+          <article class="dish" data-category="nv">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><span class="steam steam--sm" aria-hidden="true"><i></i><i></i><i></i></span><img src="https://unsplash.com/photos/klTf2RN37Ts/download?force=true&w=900" data-fallback="https://unsplash.com/photos/gBPN0pnMU9s/download?force=true&w=900|https://unsplash.com/photos/YHSeJVrqW58/download?force=true&w=900" alt="Pan-fried gyoza on a black plate" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Dumplings · 6 pcs</p>
+                <h3>Moonlight Pork Gyoza</h3>
+                <p class="dish__desc">Crisp-bottomed pork &amp; cabbage, chilli-crisp soy.</p>
+                <p class="dish__meta"><span class="price">₹249</span><span class="nv" role="img" aria-label="Non-vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="nv">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><span class="steam steam--sm" aria-hidden="true"><i></i><i></i><i></i></span><img src="https://unsplash.com/photos/idUSfFfqLmw/download?force=true&w=900" data-fallback="https://unsplash.com/photos/j9fy7p_hcpM/download?force=true&w=900|https://unsplash.com/photos/klTf2RN37Ts/download?force=true&w=900" alt="Pork soup dumplings in a bamboo steamer" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Dumplings · 6 pcs</p>
+                <h3>Pork Soup Dumplings</h3>
+                <p class="dish__desc">Classic xiao long bao, ginger &amp; black vinegar.</p>
+                <p class="dish__meta"><span class="price">₹349</span><span class="nv" role="img" aria-label="Non-vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="nv">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><span class="steam steam--sm" aria-hidden="true"><i></i><i></i><i></i></span><img src="https://unsplash.com/photos/YFU0AvczmLk/download?force=true&w=900" data-fallback="https://unsplash.com/photos/l3Mr7vSdmd4/download?force=true&w=900|https://unsplash.com/photos/egzPIj_8MFA/download?force=true&w=900" alt="Ramen with egg and pork" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Ramen</p>
+                <h3>Midnight Tonkotsu</h3>
+                <p class="dish__desc">18-hour pork broth, torched chashu, ajitama egg.</p>
+                <p class="dish__meta"><span class="price">₹449</span><span class="nv" role="img" aria-label="Non-vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="nv">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><span class="steam steam--sm" aria-hidden="true"><i></i><i></i><i></i></span><img src="https://unsplash.com/photos/qom5MPOER-I/download?force=true&w=900" data-fallback="https://unsplash.com/photos/vPMQl71yFDI/download?force=true&w=900|https://unsplash.com/photos/lbxLlgi_8_w/download?force=true&w=900" alt="A bowl of ramen" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Ramen</p>
+                <h3>Spicy Chicken Miso</h3>
+                <p class="dish__desc">Chicken paitan, red miso, chilli oil, butter corn.</p>
+                <p class="dish__meta"><span class="price">₹429</span><span class="nv" role="img" aria-label="Non-vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FAST FOOD ===================== -->
+    <section class="section menu menu--fast" id="fastfood" aria-labelledby="fastTitle">
+      <div class="container">
+        <div class="menu__head menu__head--split">
+          <div>
+            <p class="label label--light"><span class="label__num">03</span> Fast food</p>
+            <h2 id="fastTitle" class="split-lines">Quick bites, <em>still handmade.</em></h2>
+          </div>
+          <p class="menu__intro reveal-up">Asian-style street favourites, ready in under ten minutes. Dine in or take away.</p>
+        </div>
+        <div class="menu__grid menu__grid--static" aria-label="Fast food">
+          <article class="dish" data-category="ff">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/7YnVp6VLa0g/download?force=true&w=900" data-fallback="https://unsplash.com/photos/fQOLgH394Ck/download?force=true&w=900|https://unsplash.com/photos/8l8Yl2ruUsg/download?force=true&w=900" alt="Burger and fries on a black plate" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Burgers</p>
+                <h3>Veg Katsu Burger</h3>
+                <p class="dish__desc">Panko-crusted veg patty, kewpie, slaw, with fries.</p>
+                <p class="dish__meta"><span class="price">₹299</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="ff">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/broMfoJ0Emg/download?force=true&w=900" data-fallback="https://unsplash.com/photos/L7dVTV02afU/download?force=true&w=900|https://unsplash.com/photos/AxFD3D_i6lU/download?force=true&w=900" alt="Fried spring rolls" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Sides · 4 pcs</p>
+                <h3>Crispy Spring Rolls</h3>
+                <p class="dish__desc">Glass noodles, cabbage &amp; sweet chilli dip.</p>
+                <p class="dish__meta"><span class="price">₹199</span><span class="v" role="img" aria-label="Vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="ff">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/TYtaOzUBWsY/download?force=true&w=900" data-fallback="https://unsplash.com/photos/c6J2thg8k04/download?force=true&w=900|https://unsplash.com/photos/YgirePmHPZU/download?force=true&w=900" alt="Korean fried chicken on a white plate" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Chicken</p>
+                <h3>Korean Fried Chicken</h3>
+                <p class="dish__desc">Double-fried, gochujang glaze, sesame &amp; pickled radish.</p>
+                <p class="dish__meta"><span class="price">₹349</span><span class="nv" role="img" aria-label="Non-vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+          <article class="dish" data-category="ff">
+            <div class="dish__card" data-tilt>
+              <div class="dish__media"><img src="https://unsplash.com/photos/60WT-38Mrwo/download?force=true&w=900" data-fallback="https://unsplash.com/photos/aIN58RJSmqM/download?force=true&w=900|https://unsplash.com/photos/fQOLgH394Ck/download?force=true&w=900" alt="A burger and fries on a plate" width="800" height="1000" loading="lazy" decoding="async"></div>
+              <div class="dish__body">
+                <p class="dish__cat">Burgers</p>
+                <h3>Chicken Katsu Burger</h3>
+                <p class="dish__desc">Crunchy chicken thigh, tonkatsu sauce, with fries.</p>
+                <p class="dish__meta"><span class="price">₹329</span><span class="nv" role="img" aria-label="Non-vegetarian"></span></p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <p class="menu__note"><span class="v" aria-hidden="true"></span> Vegetarian &nbsp; <span class="nv" aria-hidden="true"></span> Non-vegetarian &nbsp;·&nbsp; Made in separate veg and non-veg stations.</p>
+      </div>
+    </section>
+
+    <!-- ===================== GALLERY ===================== -->
+    <section class="gallery" id="gallery" aria-labelledby="galleryTitle">
+      <div class="gallery__pin">
+        <div class="container gallery__head">
+          <div>
+            <p class="label"><span class="label__num">04</span> Gallery</p>
+            <h2 id="galleryTitle" class="split-lines">Come for the food, <em>stay for the glow.</em></h2>
+          </div>
+          <p class="gallery__count" aria-hidden="true"><span id="galleryIdx">01</span> / 05</p>
+        </div>
+        <div class="gallery__viewport" tabindex="0" aria-label="Gallery — scroll horizontally">
+          <ul class="gallery__track" role="list">
+            <li class="shot"><figure><div class="shot__frame"><img src="https://unsplash.com/photos/COP9_g8aXFU/download?force=true&w=1600" data-fallback="https://unsplash.com/photos/WvSXctqZ4UI/download?force=true&w=1600|https://unsplash.com/photos/jqHSJlTumjU/download?force=true&w=1600" alt="Restaurant interior with Japanese wall art" width="1600" height="1000" loading="lazy" decoding="async"></div><figcaption><span>01</span> The dining room</figcaption></figure></li>
+            <li class="shot shot--tall"><figure><div class="shot__frame"><img src="https://unsplash.com/photos/yRnOQOyWfHI/download?force=true&w=1200" data-fallback="https://unsplash.com/photos/RP6Ucosc4bs/download?force=true&w=1200|https://unsplash.com/photos/FNUCamcKu3E/download?force=true&w=1200" alt="Lifting noodles from a bowl with chopsticks" width="1200" height="1500" loading="lazy" decoding="async"></div><figcaption><span>02</span> The first lift</figcaption></figure></li>
+            <li class="shot"><figure><div class="shot__frame"><img src="https://unsplash.com/photos/vajkZSrqB3o/download?force=true&w=1600" data-fallback="https://unsplash.com/photos/lbxLlgi_8_w/download?force=true&w=1600|https://unsplash.com/photos/V82GYnR98lY/download?force=true&w=1600" alt="A wooden table set with bowls of food and chopsticks" width="1600" height="1000" loading="lazy" decoding="async"></div><figcaption><span>03</span> A table to share</figcaption></figure></li>
+            <li class="shot shot--tall"><figure><div class="shot__frame"><img src="https://unsplash.com/photos/b_topcKbWu8/download?force=true&w=1200" data-fallback="https://unsplash.com/photos/3CzGKfWfYEk/download?force=true&w=1200|https://unsplash.com/photos/P_n-YjsgWhM/download?force=true&w=1200" alt="A cup of green tea beside a small plate" width="1200" height="1500" loading="lazy" decoding="async"></div><figcaption><span>04</span> Tea, slowly</figcaption></figure></li>
+            <li class="shot"><figure><div class="shot__frame"><img src="https://unsplash.com/photos/acI3WlNJe7k/download?force=true&w=1600" data-fallback="https://unsplash.com/photos/4dJBC13qfEs/download?force=true&w=1600|https://unsplash.com/photos/jqHSJlTumjU/download?force=true&w=1600" alt="A gyoza house glowing at night" width="1600" height="1000" loading="lazy" decoding="async"></div><figcaption><span>05</span> Late nights</figcaption></figure></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== REVIEWS ===================== -->
+    <section class="section reviews" id="reviews" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div class="reviews__head">
+          <p class="label"><span class="label__num">05</span> Kind words</p>
+          <h2 id="reviewsTitle" class="sr-only">Guest reviews</h2>
+          <p class="reviews__note">Sample reviews — placeholder content for this demo</p>
+        </div>
+        <div class="quotes" aria-roledescription="carousel" aria-label="Guest reviews">
+          <ul class="quotes__list" id="quotes" role="list">
+            <li class="quote is-active" aria-roledescription="slide"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>“The soup dumplings are the best I've had outside Shanghai — and the room at night is pure calm.”</blockquote><p class="quote__by">Ananya R. <span>· Sample guest</span></p></li>
+            <li class="quote" aria-roledescription="slide"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>“A serious tonkotsu. Deep, clean, nothing out of place. They remembered my order on the second visit.”</blockquote><p class="quote__by">Karan M. <span>· Sample guest</span></p></li>
+            <li class="quote" aria-roledescription="slide"><div class="stars" role="img" aria-label="5 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div><blockquote>“Came for the daifuku, stayed for three courses. Thoughtful food, beautiful space.”</blockquote><p class="quote__by">Sara D. <span>· Sample guest</span></p></li>
+            <li class="quote" aria-roledescription="slide"><div class="stars" role="img" aria-label="4 out of 5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg class="off"><use href="#i-star"/></svg></div><blockquote>“Excellent vegetarian options — the crystal har gow is a quiet showstopper. Book ahead on weekends.”</blockquote><p class="quote__by">Vikram P. <span>· Sample guest</span></p></li>
+          </ul>
+          <div class="quotes__nav">
+            <button class="arrow arrow--prev" id="qPrev" aria-label="Previous review"><svg width="22" height="22"><use href="#i-arrow"/></svg></button>
+            <div class="quotes__progress" aria-hidden="true"><span id="qBar"></span></div>
+            <p class="quotes__count" aria-live="polite"><span id="qIdx">01</span> / 04</p>
+            <button class="arrow" id="qNext" aria-label="Next review"><svg width="22" height="22"><use href="#i-arrow"/></svg></button>
+            <button class="pause" id="qPause" aria-pressed="false">Pause</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RESERVE ===================== -->
+    <section class="section reserve" id="reserve" aria-labelledby="reserveTitle">
+      <div class="container reserve__grid">
+        <div class="reserve__copy">
+          <p class="label"><span class="label__num">06</span> Reservations</p>
+          <h2 id="reserveTitle" class="split-lines">Save a seat <em>under the moon.</em></h2>
+          <p class="reveal-up">Tables for one to twelve. For birthdays and private dinners, write to us and we'll plan something quietly special.</p>
+          <ul class="reserve__facts reveal-up" role="list">
+            <li><span>Lunch</span> 12:00 – 15:30</li>
+            <li><span>Dinner</span> 18:30 – late</li>
+            <li><span>Groups</span> up to 12 guests</li>
+          </ul>
+        </div>
+
+        <div class="reserve__card">
+          <form class="form" id="reserveForm" novalidate>
+            <div class="field">
+              <input id="fName" name="name" type="text" autocomplete="name" required placeholder=" " aria-describedby="fNameErr">
+              <label for="fName">Your name</label>
+              <p class="field__err" id="fNameErr"></p>
+            </div>
+            <div class="field">
+              <input id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required placeholder=" " aria-describedby="fPhoneErr">
+              <label for="fPhone">Phone</label>
+              <p class="field__err" id="fPhoneErr"></p>
+            </div>
+            <div class="field-row">
+              <div class="field field--static">
+                <input id="fDate" name="date" type="date" required aria-describedby="fDateErr">
+                <label for="fDate">Date</label>
+                <p class="field__err" id="fDateErr"></p>
+              </div>
+              <div class="field field--static">
+                <select id="fTime" name="time" required aria-describedby="fTimeErr"><option value="">Select</option></select>
+                <label for="fTime">Time</label>
+                <p class="field__err" id="fTimeErr"></p>
+              </div>
+            </div>
+            <div class="field field--static">
+              <span class="field__label" id="guestsLabel">Guests</span>
+              <div class="stepper" role="group" aria-labelledby="guestsLabel">
+                <button type="button" class="stepper__btn" data-step="-1" aria-label="Fewer guests">−</button>
+                <output id="fGuests" aria-live="polite">2</output>
+                <button type="button" class="stepper__btn" data-step="1" aria-label="More guests">+</button>
+              </div>
+            </div>
+            <button type="submit" class="btn btn--ember btn--block magnetic"><span>Reserve my table</span></button>
+            <p class="form__note">Demo form — nothing is sent. Connect Formspree or WhatsApp (see README).</p>
+          </form>
+
+          <div class="success" id="reserveSuccess" hidden tabindex="-1">
+            <canvas class="confetti" id="confetti" aria-hidden="true"></canvas>
+            <svg class="success__mochi" id="successMochi" viewBox="0 0 120 100" aria-hidden="true">
+              <ellipse class="success__shadow" cx="60" cy="94" rx="30" ry="4" fill="currentColor" opacity=".12"/>
+              <g class="success__body">
+                <path d="M14 70C14 40 34 24 60 24s46 16 46 46c0 16-20 22-46 22S14 86 14 70z" fill="#F4EDE3" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M46 62q4-4 8 0M66 62q4-4 8 0M56 70q4 4 8 0" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </g>
+            </svg>
+            <h3>Your table is held.</h3>
+            <p id="successMsg" role="status"></p>
+            <button type="button" class="btn btn--line" id="bookAgain"><span>Make another booking</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VISIT ===================== -->
+    <section class="section visit" id="visit" aria-labelledby="visitTitle">
+      <div class="container visit__grid">
+        <div class="visit__map reveal-img">
+          <!-- Live Google Map (no API key needed). Replace the q= value per client. -->
+          <iframe title="Map showing Mochi Moon in Indiranagar, Bengaluru" src="https://www.google.com/maps?q=Indiranagar,+Bengaluru&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="visit__info">
+          <p class="label"><span class="label__num">07</span> Visit</p>
+          <h2 id="visitTitle" class="split-lines">Find us <em>in Indiranagar.</em></h2>
+          <address class="reveal-up">12 Lavender Lane, Indiranagar<br>Bengaluru 560038</address>
+          <div class="hours reveal-up">
+            <p class="hours__title">Opening hours <span class="open-pill" data-open-pill>Open now</span></p>
+            <dl>
+              <div data-days="1,2,3,4"><dt>Mon – Thu</dt><dd>12:00 – 22:30</dd></div>
+              <div data-days="5,6"><dt>Fri – Sat</dt><dd>12:00 – 23:30</dd></div>
+              <div data-days="0"><dt>Sunday</dt><dd>11:00 – 22:00</dd></div>
+            </dl>
+          </div>
+          <ul class="contact reveal-up" role="list">
+            <li><a href="tel:+919876543210" class="link">+91 98765 43210</a></li>
+            <li><a href="mailto:hello@mochimoon.example" class="link">hello@mochimoon.example</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Indiranagar+Bengaluru" target="_blank" rel="noopener" class="link">Get directions ↗</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__news">
+          <p class="label label--light">Moon mail</p>
+          <p class="footer__lead">New dishes and secret-menu nights, once a month.</p>
+          <form class="news" id="newsForm" novalidate>
+            <label for="newsEmail" class="sr-only">Email address</label>
+            <input id="newsEmail" type="email" autocomplete="email" placeholder="Your email" required>
+            <button type="submit" aria-label="Subscribe"><svg width="22" height="22"><use href="#i-arrow"/></svg></button>
+          </form>
+          <p class="news__msg" id="newsMsg" role="status"></p>
+        </div>
+        <nav class="footer__col" aria-label="Footer">
+          <p class="label label--light">Explore</p>
+          <ul role="list"><li><a href="#menu" class="link">Veg menu</a></li><li><a href="#nonveg" class="link">Non-veg</a></li><li><a href="#fastfood" class="link">Fast food</a></li><li><a href="#about" class="link">Our story</a></li><li><a href="#gallery" class="link">Gallery</a></li><li><a href="#reserve" class="link">Reserve</a></li></ul>
+        </nav>
+        <div class="footer__col">
+          <p class="label label--light">Follow</p>
+          <ul role="list"><li><a href="#" class="link">Instagram</a></li><li><a href="#" class="link">Facebook</a></li><li><a href="#" class="link">YouTube</a></li><li><a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="link">WhatsApp</a></li></ul>
+        </div>
+      </div>
+      <p class="footer__word" aria-hidden="true">Mochi Moon<svg class="footer__spark f1"><use href="#i-sparkle"/></svg><svg class="footer__spark f2"><use href="#i-sparkle"/></svg></p>
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Mochi Moon — a fictional brand for a portfolio demo. Photos via <a href="https://unsplash.com" class="link" target="_blank" rel="noopener">Unsplash</a>.</p>
+        <p>Design &amp; build by <a href="#" class="link">Your Studio</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
