@@ -1,4 +1,4 @@
-# Mochi Moon: premium restaurant site template (v2)
+# Mochi Moon: premium restaurant site
 
 A calm, editorial one-page restaurant website. It's a portfolio demo you can reskin for real clients.
 
